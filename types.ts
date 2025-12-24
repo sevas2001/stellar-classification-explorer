@@ -24,6 +24,9 @@ export interface ClusterData {
   image: string;
   description: string;
   stable: boolean;
+  radius: number; // Solar Radii
+  identifyingFeature: string;
+  uiColor: string; // Hex or Tailwind class for UI theming
 }
 
 export interface NavItemProps {

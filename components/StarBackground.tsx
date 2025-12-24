@@ -2,15 +2,37 @@ import React from 'react';
 
 const StarBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 z-0 bg-background-dark pointer-events-none">
-      {/* Deep Radial Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0d7ff2]/10 via-[#050510] to-[#050510]"></div>
-      
-      {/* Stars Overlay */}
-      <div className="absolute inset-0 stars-bg opacity-40"></div>
-      
-      {/* Bottom Accent Glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary/5 to-transparent"></div>
+    <div className="fixed inset-0 z-0 bg-background-dark pointer-events-none overflow-hidden text-neutral-900">
+
+      {/* Deep Radial Void */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#1a103c_0%,_#000000_100%)] opacity-80"></div>
+
+      {/* Nebula Clouds */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-900/20 blur-[120px] rounded-full mix-blend-screen animate-pulse-slow"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-900/20 blur-[100px] rounded-full mix-blend-screen animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+
+      {/* Star Layers using CSS Box Shadows for performance */}
+      <div className="absolute inset-0 stars-small opacity-80"></div>
+      <div className="absolute inset-0 stars-small opacity-50 scale-150 origin-center animation-delay-[10s]"></div>
+
+      {/* Twinkling Individual Stars */}
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.8)] star-twinkle"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${Math.random() * 2 + 1}px`,
+            height: `${Math.random() * 2 + 1}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${Math.random() * 3 + 2}s`
+          }}
+        ></div>
+      ))}
+
+      {/* Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(transparent_50%,_black_100%)]"></div>
     </div>
   );
 };

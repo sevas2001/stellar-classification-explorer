@@ -7,99 +7,117 @@ import { ClusterData, ClusterType } from '../types';
 const clusters: Record<string, ClusterData> = {
   cluster0: {
     id: "CLS-00",
-    name: "Cluster 0: Gigantes Rojas",
-    sector: "Halo Exterior",
-    ngc: "M53",
-    type: ClusterType.RED_GIANT,
-    starCount: 4200,
-    avgTemp: 3200, // Cold
-    radVel: 85,
-    density: 15.2,
-    image: "/images/cluster0.png", // Generated Red Giant Image
-    description: "Estrellas enormes y frías en una etapa avanzada de evolución estelar. Han agotado el hidrógeno en sus núcleos y ahora fusionan helio. Su baja temperatura superficial les da un color rojizo característico.",
+    name: "Cluster 0: Subgigantes",
+    sector: "La Transición",
+    ngc: "G-Transition",
+    type: ClusterType.SUB_GIANT,
+    starCount: 2100,
+    avgTemp: 5502,
+    radVel: 35,
+    density: 4.1,
+    image: "/images/cluster5.png", // Subgiant Image (formerly C5)
+    description: "Estrellas que están empezando a morir. Han agotado el hidrógeno en su núcleo y están comenzando a expandirse y enfriarse, abandonando la secuencia principal. Son el puente entre las estrellas 'normales' y las Gigantes rojas.",
     stable: true,
-    metallicity: -0.060,
-    gravity: 0.882
+    metallicity: -0.172,
+    gravity: 2.84,
+    radius: 10.5,
+    identifyingFeature: "Puente entre 'normales' y Gigantes rojas",
+    uiColor: "text-orange-300"
   },
   cluster1: {
     id: "CLS-01",
-    name: "Cluster 1: Secuencia Principal",
-    sector: "Brazo de Orión",
-    ngc: "Sol-Vicinity",
-    type: ClusterType.MAIN_SEQUENCE,
-    starCount: 15000,
-    avgTemp: 5778, // Sun-like
-    radVel: 20,
-    density: 5.5,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/800px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg", // The Sun (SDO)
-    description: "Estrellas tipo Sol (Enanas Amarillas) en equilibrio hidrostático. Fusionan hidrógeno en helio en sus núcleos. Representan la mayoría de las estrellas en el disco galáctico y son las candidatas principales para albergar vida.",
+    name: "Cluster 1: Estrellas Azules",
+    sector: "Juventud Caliente",
+    ngc: "O-Association",
+    type: ClusterType.BLUE_YOUNG,
+    starCount: 500,
+    avgTemp: 9771,
+    radVel: -15,
+    density: 8.8,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/800px-Pleiades_large.jpg", // Pleiades
+    description: "Estrellas jóvenes, masivas y calientes (Tipo A/B). Son mucho más brillantes que el Sol y queman su combustible muy rápido. Alta temperatura sin ser objetos compactos.",
     stable: true,
-    metallicity: -0.355,
-    gravity: 4.111
+    metallicity: -0.594,
+    gravity: 3.90,
+    radius: 2.97,
+    identifyingFeature: "Alta temperatura sin ser objetos compactos",
+    uiColor: "text-blue-400"
   },
   cluster2: {
     id: "CLS-02",
-    name: "Cluster 2: Alta Velocidad",
-    sector: "Halo Galáctico",
-    ngc: "HV-Stream",
+    name: "Cluster 2: Halo / Enanas Rojas",
+    sector: "El Halo Galáctico",
+    ngc: "Halo-Stream",
     type: ClusterType.HIGH_VELOCITY,
     starCount: 120,
-    avgTemp: 4500,
-    radVel: 450, // Extremely fast!
+    avgTemp: 4067,
+    radVel: 250, // High velocity
     density: 1.2,
-    image: "/images/cluster2.png", // Generated High Velocity Image
-    description: "Conocidas como las 'velocistas' del Halo. Poseen un movimiento propio (PM) extremadamente alto (51 mas/yr). Suelen ser estrellas expulsadas de sistemas binarios o por interacciones con el agujero negro central.",
+    image: "/images/cluster2.png", // High Velocity Image
+    description: "Estrellas muy antiguas, pequeñas y frías que pertenecen al Halo de la Vía Láctea. Están 'de paso' por nuestro vecindario a velocidades extremas (PM: 54.9 mas/yr).",
     stable: false,
     metallicity: -0.240,
-    gravity: 4.584
+    gravity: 4.58, // Assumed high for dwarfs
+    radius: 0.65,
+    identifyingFeature: "Velocidad Tangencial Extrema",
+    uiColor: "text-red-700"
   },
   cluster3: {
     id: "CLS-03",
     name: "Cluster 3: Enanas Blancas",
-    sector: "Remanentes Locales",
-    ngc: "Sirius-B Group",
+    sector: "Objetos Exóticos",
+    ngc: "Remnants",
     type: ClusterType.WHITE_DWARF,
     starCount: 850,
-    avgTemp: 15000, // Very hot
+    avgTemp: 14450,
     radVel: 12,
-    density: 1000000, // Very dense
-    image: "/images/cluster3.png", // Generated White Dwarf Image
-    description: "Remanentes estelares muy calientes (15,000K) pero tenues debido a su pequeño tamaño (comparable a la Tierra). Materia degenerada extremadamente densa. El destino final de estrellas de masa media.",
+    density: 9.4, // PWD probability or relative density
+    image: "/images/cluster3.png", // White Dwarf Image
+    description: "El grupo más misterioso. Contiene los núcleos 'muertos' de estrellas antiguas (Enanas Blancas) y estrellas muy calientes. Son objetos compactos con temperaturas extremas.",
     stable: true,
-    metallicity: -0.883,
-    gravity: 4.144
+    metallicity: -0.915,
+    gravity: 8.0, // High gravity for White Dwarfs
+    radius: 0.01, // Earth sized
+    identifyingFeature: "Calor Extremo / Alta Densidad",
+    uiColor: "text-purple-400"
   },
   cluster4: {
     id: "CLS-04",
-    name: "Cluster 4: Azules / Jóvenes",
-    sector: "Cúmulo Abierto",
-    ngc: "Pleiades-M45",
-    type: ClusterType.BLUE_YOUNG,
-    starCount: 500,
-    avgTemp: 25000, // Extremely hot
-    radVel: -15,
-    density: 8.8,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/800px-Pleiades_large.jpg", // The Pleiades
-    description: "Estrellas masivas de tipo espectral A y B. Son muy jóvenes, calientes y luminosas. Su vida es corta en términos astronómicos. Se encuentran típicamente en regiones de formación estelar activa.",
+    name: "Cluster 4: Gigantes Rojas",
+    sector: "Los Monstruos",
+    ngc: "M-Giants",
+    type: ClusterType.RED_GIANT,
+    starCount: 4200,
+    avgTemp: 3862,
+    radVel: 45,
+    density: 0.001, // Low density
+    image: "/images/cluster0.png", // Red Giant Image (formerly C0)
+    description: "Estrellas en las fases finales de su vida. Se han hinchado monstruosamente y sus capas exteriores son muy tenues. Son, con diferencia, los objetos más grandes de la muestra.",
     stable: true,
-    metallicity: -0.594,
-    gravity: 3.873
+    metallicity: -0.060,
+    gravity: 0.95,
+    radius: 93.6,
+    identifyingFeature: "Tamaño Monstruoso",
+    uiColor: "text-red-500"
   },
   cluster5: {
     id: "CLS-05",
-    name: "Cluster 5: Subgigantes",
-    sector: "Zona de Transición",
-    ngc: "Procyon-Region",
-    type: ClusterType.SUB_GIANT,
-    starCount: 2100,
-    avgTemp: 5200,
-    radVel: 35,
-    density: 4.1,
-    image: "/images/cluster5.png", // Generated Subgiant Image
-    description: "Estrellas en transición que han cesado la fusión de hidrógeno en su núcleo y están empezando a evolucionar hacia gigantes rojas. Son más brillantes que las enanas de la secuencia principal de la misma temperatura.",
+    name: "Cluster 5: Tipo Solar",
+    sector: "Vecinas Solares",
+    ngc: "G-Sequence",
+    type: ClusterType.MAIN_SEQUENCE,
+    starCount: 15000,
+    avgTemp: 5931,
+    radVel: 20,
+    density: 5.5,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/800px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg", // Sun
+    description: "Estrellas adultas estables, muy similares a nuestro propio Sol. Están en la plenitud de su vida fusionando hidrógeno. Representan el estándar estelar en nuestra zona galáctica.",
     stable: true,
-    metallicity: -0.172,
-    gravity: 2.818
+    metallicity: -0.05, // Solar-ish
+    gravity: 4.14,
+    radius: 1.57,
+    identifyingFeature: "Normalidad / Estabilidad",
+    uiColor: "text-yellow-400"
   }
 };
 
@@ -201,8 +219,9 @@ const ExplorerPage: React.FC<ExplorerPageProps> = ({ onExit }) => {
                 { label: "M (Roja)", color: "bg-red-500", active: currentCluster.type === ClusterType.RED_GIANT },
                 { label: "G (Amarilla)", color: "bg-yellow-400", active: currentCluster.type === ClusterType.MAIN_SEQUENCE },
                 { label: "A/B (Azul)", color: "bg-blue-400", active: currentCluster.type === ClusterType.BLUE_YOUNG },
-                { label: "D (Blanca)", color: "bg-white", active: currentCluster.type === ClusterType.WHITE_DWARF },
-                { label: "SG (Transición)", color: "bg-orange-300", active: currentCluster.type === ClusterType.SUB_GIANT }
+                { label: "D (Blanca)", color: "bg-purple-300", active: currentCluster.type === ClusterType.WHITE_DWARF },
+                { label: "SG (Transición)", color: "bg-orange-300", active: currentCluster.type === ClusterType.SUB_GIANT },
+                { label: "Halo (Rápida)", color: "bg-red-800", active: currentCluster.type === ClusterType.HIGH_VELOCITY }
               ].map((tag) => (
                 <button key={tag.label} className={`flex items-center gap-2 h-8 px-3 rounded-md border text-xs font-medium transition-all ${tag.active ? 'bg-primary/20 border-primary/40 text-white hover:bg-primary/30' : 'bg-[#283039]/50 border-white/5 text-gray-300 opacity-50'}`}>
                   <div className={`w-2 h-2 rounded-full ${tag.color} ${tag.active ? 'shadow-[0_0_5px_currentColor]' : ''}`}></div>
@@ -295,6 +314,10 @@ const ExplorerPage: React.FC<ExplorerPageProps> = ({ onExit }) => {
                     <p className="text-sm text-gray-300 leading-relaxed font-light">
                       {currentCluster.description}
                     </p>
+                    <div className={`mt-3 p-2 rounded bg-black/40 border border-white/5 border-l-2 ${currentCluster.uiColor.replace('text-', 'border-') || 'border-primary'}`}>
+                      <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Rasgo Identificativo</span>
+                      <span className={`text-sm font-medium ${currentCluster.uiColor || 'text-white'}`}>{currentCluster.identifyingFeature}</span>
+                    </div>
                   </div>
 
                   {/* Gauges */}
@@ -348,6 +371,25 @@ const ExplorerPage: React.FC<ExplorerPageProps> = ({ onExit }) => {
               {/* TAB CONTENT: ASTROPHYSICS */}
               {activeTab === 'astro' && (
                 <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+                  {/* Radius Card */}
+                  <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-white/10 rounded-xl p-6 relative overflow-hidden group hover:border-white/20 transition-all">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                      <div className="rounded-full border-4 border-white w-16 h-16"></div>
+                    </div>
+                    <div className="relative z-10 flex flex-col items-center text-center">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-accent-yellow font-bold text-lg">⊙</span>
+                        <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest">Radio Estelar</h3>
+                      </div>
+                      <div className="text-5xl font-black text-white tracking-tighter mb-2 font-mono">
+                        {currentCluster.radius} <span className="text-xl text-gray-500">R⊙</span>
+                      </div>
+                      <p className="text-xs text-gray-400 leading-snug max-w-[200px]">
+                        Tamaño comparado con el Sol. {currentCluster.radius > 10 ? "Extendido/Gigante" : currentCluster.radius < 0.1 ? "Compacto/Remanente" : "Secuencia Principal"}
+                      </p>
+                    </div>
+                  </div>
+
                   {/* Metallicity Card */}
                   <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10 rounded-xl p-6 relative overflow-hidden group hover:border-white/20 transition-all">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -400,7 +442,9 @@ const ExplorerPage: React.FC<ExplorerPageProps> = ({ onExit }) => {
                         <span className="font-mono text-primary">
                           {currentCluster.type === "Enanas Blancas" ? "D (Degenerada)" :
                             currentCluster.type === "Gigantes Rojas" ? "III (Gigante)" :
-                              "V (Secuencia P.)"}
+                              currentCluster.type === "Subgigantes" ? "IV (Subgigante)" :
+                                currentCluster.type === "Alta Velocidad" ? "VI (Sub-enana)" :
+                                  "V (Secuencia P.)"}
                         </span>
                       </li>
                       <li className="flex justify-between border-b border-white/5 pb-2">
